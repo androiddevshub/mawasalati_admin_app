@@ -9,9 +9,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-//    http://192.168.152.185:3000/
-//    http://192.168.1.30:3000/
-    public static final String BASE_URL = "http://192.168.1.30:3000/";
+
+    public static final String LOCAL_BASE_URL = "http://192.168.1.5:3000/";
+    public static final String REMOTE_BASE_URL = "http://18.116.29.211:3000/";
+
 
     private static Retrofit retrofit = null;
 
@@ -31,7 +32,7 @@ public class ApiClient {
             retrofit = new Retrofit.Builder()
                     .client(buildClient())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(BASE_URL)
+                    .baseUrl(REMOTE_BASE_URL)
                     .build();
         }
         return retrofit;
